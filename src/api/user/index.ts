@@ -1,5 +1,5 @@
 import http from "@/http"
-import type {ListParam, LoginUser, User} from "@/api/user/UserModel";
+import type {ListParam, LoginUser, updateUser, User} from "@/api/user/UserModel";
 
 export const addAdminUserApi = (parm: User) => {
     return http.post("/api/v1/sysUser", parm)
@@ -28,4 +28,9 @@ export const getCodeApi = () => {
 // 后台登录
 export const loginApi = (parm: LoginUser) => {
     return http.post("/api/v1/sysUser/login", parm)
+}
+
+// 修改密码
+export const updatePasswordApi = (parm: updateUser) => {
+    return http.put("/api/v1/sysUser/updatePassword", parm)
 }

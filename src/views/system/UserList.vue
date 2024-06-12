@@ -64,6 +64,7 @@ const searchParm = reactive({
 
 //表格数据
 const tableList = ref([]);
+
 //表格高度
 const tableHeight = ref(0);
 
@@ -83,11 +84,11 @@ const resetBtn = () => {
   searchParm.phone = '';
   getList();
 }
-//搜搜
+
+//搜索
 const searchBtn = () => {
   getList();
 }
-
 
 //重置密码
 const resetPas = async (row: WxUser) => {

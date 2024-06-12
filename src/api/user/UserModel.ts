@@ -17,6 +17,12 @@ export type LoginUser = {
     code: string,
 }
 
+export type updateUser = {
+    userId: string,
+    password: string,
+    oldPassword: string
+}
+
 // 定义列表查询
 // 与后端实体类PageParam同
 export type ListParam = {
