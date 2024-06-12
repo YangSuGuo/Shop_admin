@@ -6,14 +6,6 @@ export type GoodsListParm = {
     total?: number
 }
 
-//商品分页查询数据类型
-export type GoodsList2Parm = {
-    currentPage: number,
-    pageSize: number,
-    goodsName: string,
-    total?: number
-}
-
 //商品状态数据类型
 export type StatusParm = {
     goodsId: string,
