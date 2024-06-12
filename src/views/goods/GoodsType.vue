@@ -139,9 +139,9 @@ const tableHeight = ref(0)
 
 //加载数据
 onMounted(() => {
-  getList()
   //计算表格高度
   tableHeight.value = window.innerHeight - 200
+  getList()
 })
 //状态： 0 新增 1 编辑
 const tags = ref('')

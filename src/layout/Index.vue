@@ -2,6 +2,7 @@
   import Menu from "@/layout/aside/Menu.vue";
   import Collapse from "./header/Collapse.vue"
   import BreadCrumb from "@/layout/header/BreadCrumb.vue";
+  import Logout from "@/layout/header/Logout.vue";
 </script>
 
 <template>
@@ -12,8 +13,11 @@
       </el-aside>
       <el-container>
         <el-header class="header">
-          <Collapse></Collapse>
-          <BreadCrumb></BreadCrumb>
+          <div class="header-left">
+            <Collapse></Collapse>
+            <BreadCrumb></BreadCrumb>
+          </div>
+          <Logout class="header-right"/>
         </el-header>
         <el-main class="myMain">
           <router-view/>
@@ -33,6 +37,15 @@
       display: flex;
       align-items: center;
       color: #FFF;
+      justify-content: space-between;
+      // 退出登录
+     .header-left{
+       display: flex;
+       align-items: center;
+     }
+      .header-right{
+        margin-right: 3%;
+      }
     }
 
     .myMain {
