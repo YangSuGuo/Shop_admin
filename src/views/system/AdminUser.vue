@@ -33,7 +33,7 @@
           <el-input v-model="addModel.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input v-model="addModel.password"></el-input>
+          <el-input v-model="addModel.password" disabled></el-input>
         </el-form-item>
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="addModel.status">

@@ -38,11 +38,12 @@
       align-items: center;
       color: #FFF;
       justify-content: space-between;
-      // 退出登录
+
      .header-left{
        display: flex;
        align-items: center;
      }
+
       .header-right{
         margin-right: 3%;
       }

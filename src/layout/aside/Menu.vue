@@ -45,7 +45,6 @@ const activeIndex = computed(() => {
   return path
 })
 
-
 let menuList = reactive([
   {
     path: "/dashboard",
@@ -198,6 +197,7 @@ let menuList = reactive([
     ],
   },
 ])
+
 </script>
 <style scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {

@@ -64,7 +64,7 @@
               <el-input
                   v-model="loginModel.code"
                   size="large"
-                  class="username-input"
+                  class="code-input"
                   :placeholder="'请输入验证码'"
                   name="username"
                   autocomplete="on"
@@ -84,8 +84,7 @@
                 margin-top: 5%;
                 margin-left: 80%">
             <el-button
-                icon="Right"
-                round
+                icon="Right" round
                 style="zoom:195%; opacity: 0.7;"
                 type="primary"
                 @click="commit">
@@ -123,12 +122,12 @@
 
 <script lang="ts" setup>
 import {onMounted, reactive, ref} from "vue";
-import type {FormInstance} from "element-plus";
 import {getCodeApi, loginApi} from "@/api/user";
 import {userStore} from "@/stores/user";
 
 import {HomeFilled} from "@element-plus/icons-vue";
 import {useRouter} from "vue-router";
+import type {FormInstance} from "element-plus";
 
 const imgsrc = ref('')
 
@@ -162,11 +161,14 @@ const commit = () => {
   form.value?.validate(async (valid) => {
     if (valid) {
       let res = await loginApi(loginModel)
-      if (res && res.code == 200) {
+      if (res && res.code === 500) {
+        ElNotification({
+          title: res.msg,
+          type: 'warning',
+        });
+      } else if (res.code === 200) {
         store.setUserId(res.data.userId);
         router.push({path: '/dashboard'})
-      } else {
-        await getImg()
       }
     }
   })
@@ -202,6 +204,7 @@ body {
 }
 
 .login-form {
+  opacity: 0.7;
   margin-left: 40px;
   margin-right: 40px;
 }
@@ -267,5 +270,9 @@ body {
   font-size: 110px;
   color: aliceblue;
   margin-left: -25px;
+}
+
+.image {
+  border-radius: 6px;
 }
 </style>
