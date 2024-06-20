@@ -19,7 +19,7 @@
           </div>
           <Logout class="header-right"/>
         </el-header>
-        <el-main class="myMain">
+        <el-main class="myMain bg-neutral-100">
           <router-view/>
         </el-main>
       </el-container>
@@ -30,7 +30,7 @@
 <style lang="scss" scoped>
   .myContainer {
     height: 100%;
-    background-color: #E4E7ED; /* 设置背景为浅灰色 */
+    //background-color: #E4E7ED; /* 设置背景为浅灰色 */
 
     .header {
       background-color: #334154;
@@ -50,7 +50,7 @@
     }
 
     .myMain {
-      background-color: #F5F7FA;
+      //background-color: #F5F7FA;
       border-radius: 10px;
     }
   }

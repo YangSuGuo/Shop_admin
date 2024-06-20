@@ -70,7 +70,7 @@
                   autocomplete="on"
                   prefix-icon="Finished"/>
             </el-col>
-            <el-col :span="5" :offset="0">
+            <el-col :span="12" :offset="0">
               <img :src="imgsrc" class="image" @click="getImg" alt="code"/>
             </el-col>
           </el-row>
