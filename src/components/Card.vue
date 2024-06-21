@@ -9,7 +9,11 @@
   flex
   items-center
   space-x-4
-  overflow-hidden">
+  overflow-hidden
+  transition
+  duration-150
+  hover:-translate-y-1
+">
 
     <div class="shrink-0">
       <img class="w-12 h-12" :src="imageSrcOrDefault" alt="Logo"/>

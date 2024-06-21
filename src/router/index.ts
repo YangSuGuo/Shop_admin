@@ -136,7 +136,6 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: "/buyOrder",
                 component: () => import('@/views/order/BuyOrder.vue'),
-
                 name: "buyOrder",
                 meta:
                     {

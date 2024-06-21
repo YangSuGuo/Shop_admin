@@ -10,8 +10,13 @@ export const getGoodsList2Api = (parm: GoodsListParm) => {
 }
 
 // 查询闲置商品数量
-export const getgetQueryIdleItemCountApi = () => {
+export const getQueryIdleItemCountApi = () => {
     return http.get("/api/v1/goods/queryIdleItemCount")
+}
+
+// 查询求购商品数量
+export const getQueryPurchaseItemQuantityApi = () => {
+    return http.get("/api/v1/goods/queryPurchaseItemQuantity")
 }
 
 //上架下架
