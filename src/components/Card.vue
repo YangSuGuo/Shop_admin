@@ -36,7 +36,7 @@
           from-pink-500
           to-violet-500
           truncate">
-        {{ text.cardQuantity }}
+        {{ cardQuantity }}
       </div>
     </div>
   </div>
@@ -48,14 +48,15 @@ import {defineProps} from "vue";
 interface TextProps {
   title: string;
   brief: string;
-  cardQuantity: string;
 }
 
 const props: {
   text: TextProps,
+  cardQuantity: string,
   imageSrc: string
 } = defineProps<{
   text: TextProps;
+  cardQuantity: string;
   imageSrc: string
 }>();
 

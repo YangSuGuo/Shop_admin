@@ -8,6 +8,11 @@ export const getListApi = (parm: UnwrapNestedRefs<searchParam>) => {
     return http.get("/api/v1/wxUser/list", parm)
 }
 
+// 查询微信正常用户数量
+export const getUserCountApi = () => {
+    return http.get("/api/v1/sysUser/getQueryUserCount")
+}
+
 //停用
 export const stopUserApi = (parm: WxUser) => {
     return http.post("/api/v1/wxUser/stopUser", parm)
