@@ -21,7 +21,7 @@
     <el-table-column prop="userName" label="账户"></el-table-column>
     <el-table-column prop="status" label="停用">
       <template #default="scope">
-        <el-switch v-model="scope.row.status" :active-value="'0'" :inactive-value="'1'"
+        <el-switch v-model="scope.row.status" :active-value="'1'" :inactive-value="'0'"
                    :before-change="beforeStat"
                    @change="changeStatus(scope.row.status, scope.row.userId)"
         />
