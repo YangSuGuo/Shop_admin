@@ -61,7 +61,7 @@ const onConfirm = () => {
   padding: 0;
   // 头部
   .el-dialog__header {
-    margin-right: 0px;
+    margin-right: 0;
     border-top-left-radius: 7px !important;
     border-top-right-radius: 7px !important;
     background-color: #304156 !important;

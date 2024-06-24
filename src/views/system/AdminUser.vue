@@ -156,7 +156,7 @@ const commit = () => {
           message: res.msg,
           type: 'success',
         });
-        getList();
+        await getList();
         // 关闭弹框
         dialog.visible = false;
       }
@@ -217,7 +217,7 @@ const deleteBtn = async (row: User) => {
     let res = await deleteAdminApi(row.userId!)
     if (res && res.code == 200) {
       ElMessage.success(res.msg)
-      getList()
+      await getList()
     }
   }
 }

@@ -98,7 +98,7 @@ import type {FormInstance} from "element-plus";
 import useWarnConfirm from "@/hooks/useWamConfirm";
 import {Title} from "@/type/BaseEnum";
 import {addApi, deleteApi, editApi, getParentApi, listApi} from "@/api/menu";
-import type {Menu} from "../../api/menu/MenuModel";
+import type {Menu} from "@/api/menu/MenuModel";
 const {global} =useWarnConfirm();
 const addRef = ref<FormInstance>();
 //弹窗属性
@@ -166,7 +166,7 @@ const deleteBtn = async (row: Menu) => {
     let res = await deleteApi(row);
     if(res && res.code==200){
       ElMessage.success(res.msg)
-      getList();
+      await getList();
     }
   }
 }
@@ -198,7 +198,7 @@ const commit = () => {
   addRef.value?.validate(async (valid) => {
     // 验证通过
     if (valid) {
-      let res =null;
+      let res = null;
       if(tags.value =='0'){
         res =await addApi(addModel);
       }else{
@@ -206,7 +206,7 @@ const commit = () => {
       }
       if(res && res.code ==200) {
         ElMessage.success(res.msg)
-        getList()
+        await getList()
         onClose()
         // dialog.visible= false;
       }

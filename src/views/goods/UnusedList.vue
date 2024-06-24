@@ -72,7 +72,7 @@
 import {nextTick, onMounted, reactive, ref} from "vue";
 
 //导入api
-import {deleteApi, getGoodsListApi, setIndexApi, upanddownApi} from "@/api/goods/index";
+import {deleteApi, getGoodsListApi, setIndexApi, upanddownApi} from "@/api/goods";
 import useWarnConfirm from "@/hooks/useWamConfirm";
 
 const {global} = useWarnConfirm();
@@ -99,7 +99,7 @@ const deleteBtn = async (goodsId: string) => {
       goodsId: goodsId,
     });
     if (res && res.code == 200) {
-      getGoodsList();//刷新
+      await getGoodsList();//刷新
     }
   }
 }
@@ -156,7 +156,7 @@ const changeStatus = async (status: string, goodsId: string) => {
     status: status,//上下架参数
   });
   if (res && res.code == 200) {
-    getGoodsList();//刷新列表
+    await getGoodsList();//刷新列表
   }
 };
 
@@ -181,7 +181,7 @@ const changeSetIndex = async (type: string, goodsId: string) => {
     setIndex: type,//上下架参数
   });
   if (res && res.code == 200) {
-    getGoodsList();//刷新列表
+    await getGoodsList();//刷新列表
   }
 };
 

@@ -165,7 +165,6 @@ const getCategoryProductCount = () => {
     value: requestedProductQuantity.value,
     itemStyle: {color: '#D6E5F4'}
   }];
-  // option.series[0].data = [idleProductQuantity.value, requestedProductQuantity.value];
   userEc.setOption(option);
 }
 

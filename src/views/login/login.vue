@@ -122,15 +122,14 @@
 
 <script lang="ts" setup>
 import {onMounted, reactive, ref} from "vue";
+import {useRouter} from "vue-router";
 import {getCodeApi, loginApi} from "@/api/user";
 import {userStore} from "@/stores/user";
 
 import {HomeFilled} from "@element-plus/icons-vue";
-import {useRouter} from "vue-router";
-import type {FormInstance} from "element-plus";
+import {type FormInstance} from "element-plus";
 
 const imgsrc = ref('')
-
 const form = ref<FormInstance>();
 
 const loginModel = reactive({
@@ -162,13 +161,10 @@ const commit = () => {
     if (valid) {
       let res = await loginApi(loginModel)
       if (res && res.code === 500) {
-        ElNotification({
-          title: res.msg,
-          type: 'warning',
-        });
+        ElMessage();
       } else if (res.code === 200) {
         store.setUserId(res.data.userId);
-        router.push({path: '/dashboard'})
+        await router.push({path: '/dashboard'})
       }
     }
   })

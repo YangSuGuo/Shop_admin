@@ -53,22 +53,15 @@
 
 <script lang="ts" setup>
 import {nextTick, onMounted, reactive, ref} from "vue";
-//引入分类数据
-//引入弹窗表单
 import useDialog from "@/hooks/useDialog";
 import SysDialog from "@/components/SysDialog.vue";
 
-
-//导入接口api
-import {addCategoryApi, deleteCategoryApi, editCategoryApi, listApi} from "@/api/category/index"
+import {addCategoryApi, deleteCategoryApi, editCategoryApi, listApi} from "@/api/category"
 import {Title} from "@/type/BaseEnum";
 import type {FormInstance} from "element-plus";
 import useWarnConfirm from "@/hooks/useWamConfirm";
 import type {Category} from "@/api/category/CategoryModel";
-//引入使用警告弹窗数据
 
-
-//弹窗属性
 const {dialog, onClose, onShow} = useDialog();
 
 //表单ref属性
@@ -85,14 +78,11 @@ const {global} = useWarnConfirm()
 
 //表格数据
 const tableList = ref([])
-//获取表格数据
 const getList = async () => {
   let res = await listApi(searchParm)
   if (res && res.code == 200) {
     console.log(res)
-    //设置表格数据
     tableList.value = res.data.records;
-    //设置分页总条数
     searchParm.total = res.data.total;
   }
 }
@@ -110,11 +100,9 @@ const resetBtn = () => {
 //编辑
 const editBtn = (row: Category) => {
   tags.value = '1'
-  dialog.title = Title.EDIT//将弹窗变成编辑
+  dialog.title = Title.EDIT
   dialog.height = 150;
-  //弹窗显示
   onShow();
-  //回显数据
   nextTick(() => {
     Object.assign(addModel, row)
   })
@@ -129,7 +117,7 @@ const deleteBtn = async (row: Category) => {
     if (res && res.code == 200) {
       ElMessage.success(res.msg)
       //刷新表格
-      getList()
+      await getList()
     }
   }
 }
@@ -195,24 +183,6 @@ const sizeChange = (size: number) => {
 //页数改变时触发
 const currentChange = (page: number) => {
   console.log(page)
-}
-
-const second = () => {
-  console.log("second函数被调用")
-  setTimeout(() => {
-    console.log('下载图片，花费两秒')
-  }, 2000);
-}
-
-const third = () => {
-  console.log("third被调用")
-}
-const secondCallback = (callback: Function) => {
-  setTimeout(
-      () => {
-        console.log("下载图片，花费两秒")
-        callback();
-      }, 2000)
 }
 
 </script>

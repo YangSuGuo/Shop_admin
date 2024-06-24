@@ -1,7 +1,7 @@
 <template>
   <el-dropdown>
     <span class="el-dropdown-link">
-      <img class="userimg" src="@/assets/ConneR_Logo.png"/>
+      <img class="userimg" src="@/assets/ConneR_Logo.png" alt="头像"/>
     </span>
     <template #dropdown>
       <el-dropdown-menu>
@@ -45,7 +45,7 @@ const loginBtn = async () => {
   const confirm = await global.$warningConfirm("确定退出登录吗?")
   if (confirm) {
     sessionStorage.clear()
-    router.push({name: 'login'})
+    await router.push({name: 'login'})
   }
 }
 
@@ -88,7 +88,7 @@ const commit = () => {
           // 关闭弹框
           dialog.visible = false;
           sessionStorage.clear()
-          router.push({name: 'login'})
+          await router.push({name: 'login'})
         }
       }
     }
