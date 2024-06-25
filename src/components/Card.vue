@@ -2,7 +2,6 @@
   <div class="
   p-6
   min-w-10
-<!--  max-w-sm-->
   bg-white
   rounded-xl
   shadow-lg
@@ -12,8 +11,7 @@
   overflow-hidden
   transition
   duration-150
-  hover:-translate-y-1
-">
+  hover:-translate-y-1">
 
     <div class="shrink-0">
       <img class="w-12 h-12" :src="imageSrcOrDefault" alt="Logo"/>
@@ -32,14 +30,14 @@
     justify-center
     items-center">
       <div class="
-          font-sans
-          subpixel-antialiased
-          bg-clip-text
-          text-transparent
-          bg-gradient-to-r
-          from-pink-500
-          to-violet-500
-          truncate">
+      font-sans
+      subpixel-antialiased
+      bg-clip-text
+      text-transparent
+      bg-gradient-to-r
+      from-pink-500
+      to-violet-500
+      truncate">
         {{ cardQuantity }}
       </div>
     </div>
@@ -54,17 +52,14 @@ interface TextProps {
   brief: string;
 }
 
-const props: {
-  text: TextProps,
-  cardQuantity: string,
-  imageSrc: string
-} = defineProps<{
+interface ComponentProps {
   text: TextProps;
   cardQuantity: string;
-  imageSrc: string
-}>();
+  imageSrc: string;
+}
+
+const props = defineProps<ComponentProps>();
 
 const defaultImageSrc = "src/assets/svg/purchaseLedger.svg";
 const imageSrcOrDefault = props.imageSrc ?? defaultImageSrc;
-
 </script>

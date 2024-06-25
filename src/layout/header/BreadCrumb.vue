@@ -5,7 +5,6 @@ import {type RouteLocationMatched, useRoute} from "vue-router";
 const route = useRoute();
 const tabs: Ref<RouteLocationMatched[]> = ref([]);
 
-//监听当前路由
 watch(
     () => route.path,
     () => getBredcrumb()
@@ -13,10 +12,8 @@ watch(
 
 //获取面包屑导航数据
 const getBredcrumb = () => {
-  // 找出有title的数据--取出所有标题，有可能是多级的
   let mached = route.matched.filter((item) => item.meta && item.meta.title);
   const first = mached[0]
-  //若点击的不是首页，则在第一级面包屑补上首页
   if (first.path !== '/dashboard') {
     mached = [{
       path: '/dashboard',

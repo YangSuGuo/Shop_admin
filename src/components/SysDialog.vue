@@ -1,26 +1,3 @@
-<script lang="ts" setup>
-// 弹出框变量赋值
-import type {DialogProps} from "@/type/DialogProps";
-
-const props = withDefaults(defineProps<DialogProps>(), {
-  title: '标题',
-  visible: false,
-  width: window.innerWidth * 0.4,
-  height: window.innerWidth * 0.2
-});
-
-//接收父组件传递的方法
-const emit = defineEmits(["onClose", "onConfirm"]);
-//定义弹框的关闭
-const onClose = () => {
-  emit("onClose");
-};
-//定义弹框的确定
-const onConfirm = () => {
-  emit("onConfirm");
-};
-</script>
-
 <template>
   <!-- 弹出框+标题 -->
   <el-dialog
@@ -36,7 +13,7 @@ const onConfirm = () => {
       draggable>
     <!-- 内容 -->
     <div :style="{ height: height + 'px' }" class="container">
-      <slot name="content"></slot>
+      <slot name="content"/>
     </div>
     <!-- 底部按钮 -->
     <template #footer>
@@ -47,6 +24,22 @@ const onConfirm = () => {
     </template>
   </el-dialog>
 </template>
+
+<script lang="ts" setup>
+import type {DialogProps} from "@/type/DialogProps";
+
+const props = withDefaults(defineProps<DialogProps>(), {
+  title: '标题',
+  visible: false,
+  width: window.innerWidth * 0.4,
+  height: window.innerWidth * 0.2
+});
+
+const emit = defineEmits(["onClose", "onConfirm"]);
+const onClose = () => { emit("onClose") }
+const onConfirm = () => { emit("onConfirm") }
+
+</script>
 
 <style scoped lang="scss">
 // 弹出框样式
