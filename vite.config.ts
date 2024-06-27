@@ -22,7 +22,6 @@ export default defineConfig({
         }),
         Components({
             resolvers: [
-                // 自动导入 Element Plus 组件
                 ElementPlusResolver(),
             ],
             dts: path.resolve(pathSrc, 'components.d.ts'),
